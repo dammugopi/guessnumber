@@ -21,7 +21,7 @@
 let randomNumber=function(){
  return Math.trunc(Math.random() * 20) + 1;  
 }
-console.log(randomNumber());
+// console.log(randomNumber());
 
 
 let secretNumber = randomNumber();
@@ -33,6 +33,11 @@ let highscore = 0;
   document.querySelector('.message').textContent =message;
 
  }
+ function audioplay(){
+ var audio = new Audio("./assest/8-bit-video-game-win-level-sound-version-1-145827.mp3")
+ audio.play();
+}
+ 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   // 20
@@ -49,10 +54,12 @@ document.querySelector('.check').addEventListener('click', function () {
   else if (guess === secretNumber) {
     document.querySelector('.number').textContent = secretNumber;
  // document.querySelector('.message').textContent = 'correct Number 🎉';
- displayMessage('correct Number 🎉');
+    displayMessage('correct Number 🎉');
     document.querySelector('body').style.backgroundColor = 'green';
     // in ordeer to change the style you need to add style and dot camel case for the properties  and give as a string
     document.querySelector('.number').style.width = '30rem';
+    audioplay();
+
     if (score > highscore) {
       highscore = score;
       document.querySelector('.highscore').textContent = highscore;
