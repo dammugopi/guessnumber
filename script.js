@@ -42,6 +42,9 @@ document.querySelector('.check').addEventListener('click', function () {
    displayMessage('❌ No number')
   //  document.querySelector('.message').textContent = '❌ No Number';
   }
+  else if(guess>20 || guess<0){
+    displayMessage("Between 1 and 20");
+  }
   // if player wins
   else if (guess === secretNumber) {
     document.querySelector('.number').textContent = secretNumber;
